@@ -6,7 +6,13 @@ import com.hoang.msu.criminalintent.databinding.ListItemCrimeBinding
 import androidx.recyclerview.widget.RecyclerView
 
 class CrimeHolder (
-    val binding: ListItemCrimeBinding): RecyclerView.ViewHolder(binding.root)
+    private val binding: ListItemCrimeBinding): RecyclerView.ViewHolder(binding.root){
+    fun bind(crime: Crime) {
+        binding.crimeTitle.text = crime.title
+        binding.crimeDate.text = crime.date.toString()
+    }
+}
+
 
 class CrimeListAdapter(private val crimes: List<Crime>): RecyclerView.Adapter<CrimeHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
@@ -16,11 +22,12 @@ class CrimeListAdapter(private val crimes: List<Crime>): RecyclerView.Adapter<Cr
         }
     override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
         val crime = crimes[position]
-        holder.apply {
-            binding.crimeTitle.text = crime.title
-            binding.crimeDate.text = crime.date.toString()
-        }
+//        holder.apply {
+//            binding.crimeTitle.text = crime.title
+//            binding.crimeDate.text = crime.date.toString()
+//        }
+        holder.bind(crime)
     }
     override fun getItemCount() = crimes.size
-
 }
+
