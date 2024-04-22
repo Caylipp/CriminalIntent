@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
+
 }
 
 android {
@@ -50,5 +52,11 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("androidx.fragment:fragment-ktx:1.4.1")
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation ("androidx.room:room-runtime:2.4.2")
+    implementation ("androidx.room:room-ktx:2.4.2")
+    kapt ("androidx.room:room-compiler:2.4.2")
 
 }
